@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+    
+<head>
+	<meta charset="UTF-8">
+	<title>コード生成</title>
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/jquery.qrcode.min.js"></script>
+
+    
+</head>
+
+
+<body>
+	  
+
+<!--	<h1>クーポン生成画面</h1>
+	<form action="gen" method="POST">
+		<input type="text" name="coupon_gen" id ="coupon_gen" />
+		<input type="submit" value="確定" />
+	</form>
+-->	
+	<div id="coupon_gen2">クーポンの番号が表示される</div>
+
+    <h1>
+    	GAME CLEAR
+    </h1>
+    
+	<form action="qr_gen" method="GET">
+       <input type="hidden" name="coupon_gen" id="coupon_gen" placeholder="coupon_gen" />
+       <input type="submit" value="次へ"　/>
+   </form>
+   
+	<div id="qrcode"><canvas width="64" height="64"></canvas></div>
+    
+   	<script>
+		var min = 0 ;
+		var max = 99999999 ;
+		
+		var rand_code = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+		
+		console.log(rand_code);
+			
+		document.getElementById("coupon_gen").value = rand_code;
+	
+	
+		var str = document.getElementById("coupon_gen").value
+		document.getElementById("coupon_gen").innerHTML = str; 
+		
+		
+      document.getElementById('coupon_gen').textContent = rand_code;
+      document.getElementsByName('coupon_gen')[0].value = rand_code;
+      
+      document.getElementById("coupon_gen2").value = rand_code;
+	
+	
+		var str = document.getElementById("coupon_gen2").value
+		document.getElementById("coupon_gen2").innerHTML = str; 
+		
+		
+      document.getElementById('coupon_gen2').textContent = rand_code;
+      document.getElementsByName('coupon_gen2')[0].value = rand_code;
+      console.log(coupon_gen);
+      console.log(coupon_gen2);
+      
+
+ 
+
+		
+	</script>
+	
+
+	
+</body>
+</html>

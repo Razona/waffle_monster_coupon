@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>コード生成</title>
+</head>
+<body>
+	
+
+<!--	<h1>クーポン生成画面</h1>
+	<form action="gen" method="POST">
+		<input type="text" name="coupon_gen" id ="coupon_gen" />
+		<input type="submit" value="確定" />
+	</form>
+-->	
+	<div id="coupon_gen">ここの文章を変える</div>
+
+    
+	<form action="gen" method="GET">
+       <input type="hidden" name="coupon_gen" id="coupon_gen2" placeholder="coupon_gen" />
+       <input type="submit" value="送信"　/>
+   </form>
+   
+	
+    
+   	<script>
+		var min = 10000 ;
+		var max = 99999 ;
+		
+		var rand_code = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+		
+		console.log(rand_code);
+			
+		document.getElementById("coupon_gen").value = rand_code;
+	
+		// No.4 getElementByIdメソッドで値を取得
+		var str = document.getElementById("coupon_gen").value
+		document.getElementById("coupon_gen").innerHTML = str; 
+		
+		
+      document.getElementById('coupon_gen').textContent = rand_code;
+      document.getElementsByName('coupon_gen')[0].value = rand_code;
+      
+      document.getElementById("coupon_gen2").value = rand_code;
+	
+		// No.4 getElementByIdメソッドで値を取得
+		var str = document.getElementById("coupon_gen2").value
+		document.getElementById("coupon_gen2").innerHTML = str; 
+		
+		
+      document.getElementById('coupon_gen2').textContent = rand_code;
+      document.getElementsByName('coupon_gen2')[0].value = rand_code;
+		
+	</script>
+	
+	
+</body>
+</html>

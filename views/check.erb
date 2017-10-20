@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script>
+  var mode = <%=@mode%>;
+  var mode_doc;
+  
+    if (mode==false){
+        mode_doc= "未使用";
+    }else {
+        mode_doc="使用済み"
+    }
+  </script>
+</head>
+    
+    <body>
+        <h1><%=@code%> 
+        <script type="text/javascript"> document.write(mode_doc); </script></h1> 
+        <p>
+            <a href="/">戻る</a>
+        </p>
+        
+        <table>
+            <% @list.each do |coupon| %>
+             <tr>
+                 <td>クーポンコード：<%= coupon.coupon_code %>
+                 ,  状態：
+                     <script>
+                     var mode_list;
+                     if (<%= coupon.mode %>==false){
+                         mode_list = "未使用";
+                     }else{
+                         mode_list="使用済み";
+                     }
+                     document.write(mode_list);
+                     </script>
+                 
+                 ,  作成時間：<%= coupon.created_at %></td>
+             </tr>
+         <% end %>
+        </table>
+        
+        <p><a  href="/">確認用</a></p>
+        <p><a  href="/coupon_gen">生成用</a></p>
+    </body>
+    
+</html>

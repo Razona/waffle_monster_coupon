@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+    
+<head>
+	<meta charset="UTF-8">
+	<title>コード生成</title>
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/jquery.qrcode.min.js"></script>
+
+	<!-- setting -->
+	<script type="text/javascript">
+
+	$(document).ready(function(){
+	    
+	    var code =0;
+	    code ="https://waffle-code-razona.c9users.io/qr_use?coupon_gen="+<%=@code%>;
+	    console.log(code);
+	    
+	     $('#qrcode').qrcode(code); //demo1:そのままテキストを入れる、今回は当サイトのURL
+	     
+	     $('#qcdemo2').qrcode({                       //demo2:幅や高さを指定する場合
+	         width:100,                               //QRコードの幅
+	         height:100,                              //QRコードの高さ 
+	         text:'http://jump-up.info'               //QRコードの内容
+	   });
+	});
+	</script>
+	<!-- /setting -->
+    
+</head>
+
+<body>
+    
+    <div id="qrcode"></div>
+    
+</body>
